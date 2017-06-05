@@ -1,0 +1,2 @@
+class CrsController < ApplicationController
+end
