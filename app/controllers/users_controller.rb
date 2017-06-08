@@ -5,8 +5,10 @@ class UsersController < ApplicationController
 
   def index
     @user = User.all
-    @cr = current_user.crs.build if logged_in?
-
+    if logged_in?
+      @cr = current_user.crs.build
+      @feed_items= current_user.feed.paginate(page: params[:page])
+    end
   end
   def new
     @user = User.new

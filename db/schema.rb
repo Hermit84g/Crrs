@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170603104803) do
+ActiveRecord::Schema.define(version: 20170608160206) do
 
   create_table "crs", force: :cascade do |t|
     t.integer  "user_id"
@@ -19,6 +19,17 @@ ActiveRecord::Schema.define(version: 20170603104803) do
     t.string   "Accused"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "status"
+    t.integer  "r_select"
+    t.integer  "ext"
+    t.text     "division"
+    t.integer  "cr_year"
+    t.integer  "cr_type"
+    t.integer  "cr_term"
+    t.integer  "cr_no"
+    t.text     "officer"
+    t.integer  "amount_ka"
+    t.integer  "amount_fu"
     t.index ["user_id"], name: "index_crs_on_user_id"
   end
 
