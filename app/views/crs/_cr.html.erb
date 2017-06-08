@@ -1,8 +1,7 @@
 <li id="cr-<%= cr.id%>">
-  <%= link_to gravater_for(cr.user, size: 50), cr.user %>
   <span class="user"><%= link_to cr.user.Name, cr.user%></span>
   <span class="Accused"><%= cr.Accused %></span>
   <span class="timestamp">
-  	Posted <%= time_ago_in_words(cr.created_at %> ago.
+  	Posted <%= time_ago_in_words(cr.created_at) %> ago.
   </span>
 </li>
