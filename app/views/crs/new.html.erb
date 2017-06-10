@@ -1,0 +1,52 @@
+<%= render 'layouts/header'%>
+<%= form_for(@cr) do |f| %>
+
+<div class="form-group">
+  <h1>請求フォーム</h1>
+
+<%#申請者情報%>
+  <div>
+    <%= f.label :Name %>
+    <%= f.text_field :Name, class: 'form-control', value: @current_user.Name %>
+    <%= f.label :division %>
+    <%= f.text_field :division, class: 'form-control', value: @current_user.division_id %>
+    <%= f.label :ext %>
+    <%= f.text_field :ext, class: 'form-control', value: @current_user.ext %>
+  </div>
+
+<%#顧客%>
+  <div>
+    <%= f.label :Accused, "顧客名" %>
+    <%= f.text_field :Accused, class: 'form-control' %>
+  </div>
+
+<%#番号%>
+  <div>
+    <%= f.label :r_select_id, "番号区分" %>
+  　<%= f.collection_select :r_select_id, @rselect, :rselval,:rselname%>
+    <label>保管・保存番号</label>
+      <%= f.text_field :cr_year, class: 'form-control', placeholder: "年" %>
+      <%= f.text_field :cr_type, class: 'form-control', placeholder: "処理区分" %>
+      <%= f.text_field :cr_no, class: 'form-control', placeholder: "番号" %>
+  </div>
+
+<%#依頼内容%>
+  <div>
+    <%= f.label :order_r, "保管・保存" %>
+    <label><%= f.radio_button :order_r, '1',class: 'form-control'%>保管</label>
+    <label><%= f.radio_button :order_r, '2',class: 'form-control'%>保存</label>
+    <label><%= f.check_box :order_ka, {}, true, false %>資料の要否</label>
+    <label><%= f.check_box :order_fu, {}, true, false %>不提出の要否</label>
+  </div>
+
+<%#謄本の要否%>
+  <div>
+    <label><%= f.check_box :order_jd, {}, true, false %>資料要旨の要否</label>
+    <%= f.label :cnt_jd, "必要部数"%>
+    <%= f.text_field :cnt_jd, class: 'form-control' %>
+  </div>
+  <div>
+    <%=  f.submit "Submit", :disable_with => 'Submiting...' %>
+  </div>
+</div>
+<% end %>

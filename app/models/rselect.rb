@@ -1,0 +1,2 @@
+class Rselect < ApplicationRecord
+end

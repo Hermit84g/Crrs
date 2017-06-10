@@ -1,7 +1,9 @@
 <%= form_for(@cr) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
-    <%= f.text_area :Accused, placeholder: "Compose new Accused..." %>
+    <div class="field">
+    <%#= f.text_area :Accused, placeholder: "Compose new Accused..." %>
   </div>
-  <%= f.submit "Post", class: "btn btn-primary" %>
+  <%#= f.submit "Post", class: "btn btn-primary" %>
+<%= link_to "Order Cr", new_cr_path, class: "btn btn-lg btn-primary" %>
+
 <% end %>
