@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20170610195154) do
     t.string   "password_digest"
     t.integer  "division_id"
     t.integer  "ext"
+    t.index ["Uid"], name: "index_users_on_Uid", unique: true
     t.index ["division_id"], name: "index_users_on_division_id"
   end
 

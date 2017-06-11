@@ -1,5 +1,15 @@
 <li id="cr-<%= cr.id%>">
-  <span class="user"><%= link_to cr.user.Name, cr.user%></span>
+  <% if cr.status == 1 %>
+    <%= button_to '申請中','cr_path', {method: :get, class:"btn btn-danger"}%>
+  <% elsif cr.status == 2 %>
+    <%= button_to '処理中','#', {method: :get, class:"btn btn-warning"}%>
+      <% elsif cr.status == 3 %>
+    <%= button_to '貸出中','#', {method: :get, class:"btn btn-success"}%>
+  <% elsif cr.status == 4 %>
+    <%= button_to '返還済','#', {method: :get, class:"btn btn-primary"}%>
+  <% end %>         
+
+  <span class="user"><%#= link_to cr.user.Name, cr.user%></span>
   <span class="Accused"><%= cr.Accused %></span>
   <span class="timestamp">
   	Posted <%= time_ago_in_words(cr.created_at) %> ago.

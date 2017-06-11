@@ -3,6 +3,7 @@
 
 <div class="form-group">
   <h1>請求フォーム</h1>
+  <% @cr.status = '1' %>
 
 <%#申請者情報%>
   <div>
@@ -23,7 +24,7 @@
 <%#番号%>
   <div>
     <%= f.label :r_select_id, "番号区分" %>
-  　<%= f.collection_select :r_select_id, @rselect, :rselval,:rselname%>
+  　<%= f.collection_select :r_select_id, @rselect, :rselval, :rselname %>
     <label>保管・保存番号</label>
       <%= f.text_field :cr_year, class: 'form-control', placeholder: "年" %>
       <%= f.text_field :cr_type, class: 'form-control', placeholder: "処理区分" %>

@@ -1,0 +1,12 @@
+<%= render 'layouts/header'%>
+<%= form_for(@cr) do |f| %>
+   <div class="field">
+    title: <%= @cr.id %>
+  </div>
+  <div class="field">
+    Accused: <%= @cr.Accused %>
+  </div>
+  <div class="field">
+    <%= link_to "Back", root_path, class: "btn btn-lg btn-primary" %>
+  </div>
+<% end %>

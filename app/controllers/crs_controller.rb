@@ -4,6 +4,7 @@ class CrsController < ApplicationController
     @cr=Cr.new
     @rselect = Rselect.all
   end
+
   def create
     @crs = current_user.crs.build(cr_params)
     if @crs.save
@@ -14,11 +15,21 @@ class CrsController < ApplicationController
     end
   end
 
+  def ctrl
+    @cr=Cr.all
+  end
+
+  def show
+  #@cr = Cr.find_by(params[:user_id])
+    end
+    
   def destroy
   end
 
   private
     def cr_params
-      params.require(:cr).permit(:Name, :division, :ext, :Accused, :cr_year, :cr_type, :cr_term, :cr_no)
+      params.require(:cr).permit(:status, :Name, :division, :ext, :Accused,:r_select_id,
+                                 :cr_year, :cr_type, :cr_term, :cr_no, :order_r,
+                                 :order_ka, :order_fu, :order_jd, :cnt_jd)
     end
 end
