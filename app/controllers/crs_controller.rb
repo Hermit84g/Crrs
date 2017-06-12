@@ -6,11 +6,12 @@ class CrsController < ApplicationController
   end
 
   def create
-    @crs = current_user.crs.build(cr_params)
+    @crs = current_user.crs.build(cr_params) if logged_in?
     if @crs.save
       flash[:success] = "record submit"
       redirect_to root_url
     else
+      @feed_items = []
       render 'users/show'
     end
   end
@@ -20,6 +21,7 @@ class CrsController < ApplicationController
   end
 
   def show
+  @user=User.find_by(params[:Uid])  
   #@cr = Cr.find_by(params[:user_id])
     end
     

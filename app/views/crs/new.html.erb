@@ -3,7 +3,7 @@
 
 <div class="form-group">
   <h1>請求フォーム</h1>
-  <% @cr.status = '1' %>
+  <%= f.hidden_field :status, value: '1' %>
 
 <%#申請者情報%>
   <div>
