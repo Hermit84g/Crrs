@@ -1,5 +1,11 @@
-<%= render 'layouts/header'%>
+
 <%= form_for(@cr) do |f| %>
+  <%= render 'shared/error_messages', object: @user %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control' %>
+
    <div class="field">
     title: <%= @cr.id %>
   </div>
@@ -9,4 +15,6 @@
   <div class="field">
     <%= link_to "Back", root_path, class: "btn btn-lg btn-primary" %>
   </div>
+  </div>
+</div>
 <% end %>

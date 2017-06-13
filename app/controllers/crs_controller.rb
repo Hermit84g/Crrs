@@ -22,7 +22,7 @@ class CrsController < ApplicationController
 
   def show
   @user=User.find_by(params[:Uid])  
-  #@cr = Cr.find_by(params[:user_id])
+  @cr = Cr.find_by(params[:user_id])
     end
     
   def destroy

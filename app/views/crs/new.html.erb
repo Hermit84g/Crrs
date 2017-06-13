@@ -1,11 +1,13 @@
-<%= render 'layouts/header'%>
+<% provide(:title, "Entry") %>
 <%= form_for(@cr) do |f| %>
 
-<div class="form-group">
   <h1>請求フォーム</h1>
   <%= f.hidden_field :status, value: '1' %>
 
 <%#申請者情報%>
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+
 <table>
   <thead>
     <tr>
@@ -35,6 +37,7 @@
     <%= f.label :r_select_id, "番号区分" %>
   　<%= f.collection_select :r_select_id, @rselect, :rselval, :rselname %>
   </div>
+
   <div>
     <label>保管・保存番号</label>
     <table>
@@ -52,25 +55,28 @@
 -->
 
 <%#依頼内容%>
-<div class="form-check">
-  <lavel class='form-check-label'>
-    <label><%= f.check_box :order_ka, {}, true, false %>確定資料</label>
-    <label><%= f.check_box :order_fu, {}, true, false %>不提出資料</label>
-    <label><%= f.check_box :order_fu, {}, true, false %>test資料</label>
-
+  <div class="form-check">
+    <lavel class='form-check-label'>
+      <label><%= f.check_box :order_ka, {}, true, false %>確定資料</label>
+      <label><%= f.check_box :order_fu, {}, true, false %>不提出資料</label>
+      <label><%= f.check_box :order_fu, {}, true, false %>test資料</label>
     </lavel>
-</div>
+  </div>
 
 <%#謄本の要否%>
   <div>
     <label><%= f.check_box :order_jd, {}, true, false %>資料要旨の要否</label>
   </div>
-  </div>  
+  <div>  
     <%= f.label :cnt_jd, "必要部数"%>
     <%= f.text_field :cnt_jd, class: 'form-control' %>
   </div>
+
   <div>
     <%=  f.submit "Submit", :disable_with => 'Submiting...' %>
   </div>
 </div>
+</div>
+
+
 <% end %>
