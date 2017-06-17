@@ -26,9 +26,9 @@ class CrsController < ApplicationController
 
   def update
    @cr=Cr.find(params[:id])
-   if @cr.assign_attributes(officer_params)
+   if @cr.update_attributes(officer_params)
      flash.notice = "正常に登録されました"
-      redirect_to ctrl_path
+      redirect_to  ctrl_path
     else
       flash.notice ="probrem occured"
    end
@@ -49,6 +49,6 @@ class CrsController < ApplicationController
                                  :order_ka, :order_fu, :order_jd, :cnt_jd)
     end
     def officer_params
-      params.require(:cr).permit(:officer, :Name, :id)
+      params.require(:cr).permit(:officer, :Name, :status)
     end
 end
