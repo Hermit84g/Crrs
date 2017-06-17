@@ -20,10 +20,24 @@ class CrsController < ApplicationController
     @cr=Cr.all
   end
 
+  def edit
+    @cr=Cr.find(params[:id])
+  end
+
+  def update
+   @cr=Cr.find(params[:id])
+   if @cr.assign_attributes(officer_params)
+     flash.notice = "正常に登録されました"
+      redirect_to ctrl_path
+    else
+      flash.notice ="probrem occured"
+   end
+  end
+
   def show
-  @user=User.find_by(params[:Uid])  
-  @cr = Cr.find_by(params[:user_id])
-    end
+    @user=User.find_by(params[:Uid])  
+    @cr = Cr.find_by(params[:user_id])
+  end
     
   def destroy
   end
@@ -33,5 +47,8 @@ class CrsController < ApplicationController
       params.require(:cr).permit(:status, :Name, :division, :ext, :Accused,:r_select_id,
                                  :cr_year, :cr_type, :cr_term, :cr_no, :order_r,
                                  :order_ka, :order_fu, :order_jd, :cnt_jd)
+    end
+    def officer_params
+      params.require(:cr).permit(:officer, :Name, :id)
     end
 end

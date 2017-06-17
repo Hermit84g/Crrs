@@ -16,7 +16,7 @@
 
         <tbody>
           <% if c.status == 1 %>
-          <td><%= button_to '受付待','#', {method: :get, class:"btn btn-danger"}%></td>
+          <td><%= button_to '受付待',edit_cr_path(c), {method: :get, class:"btn btn-danger"}%></td>
           <% elsif c.status == 2 %>
           <td><%= button_to '処理中','#', {method: :get, class:"btn btn-warning"}%></td>
           <% elsif c.status == 3 %>

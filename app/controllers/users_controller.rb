@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(params[:Uid])
+    @user = User.find(params[:id])
     @crs = @user.crs.paginate(page: params[:page])
     #debugger
   end

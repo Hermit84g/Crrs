@@ -1,37 +1,21 @@
-<% provide(:title,'Ctrl_Centre') %>
-<div class="row">
-        <div class="col-md-12">
-      <table class="table">
-        <thead> 
-          <th>Status</th>
-          <th>division</th> 
-          <th>Name</th> 
-          <th>ext</th> 
-
-          <th>Doc_ID</th> 
-          <th>Accused</th>  
-          <th>担当者</th>  
-        </thead>
-        <% @cr.each do |c| %>
-
-        <tbody>
-          <% if c.status == 1 %>
-          <td><%= button_to '受付',edit_crr_path(c), {method: :get, class:"btn btn-danger"}%></td>
-          <% else %>
-          <td><%= button_to '受付',edit_crr_path(c), {method: :get, class:"btn btn-warning"}%></td>
-          <% end %>         
-          <td><%= c.division %></td>
-          <td><%= c.Name %></td>
-          <td><%= c.ext %></td>
-          <td><%= c.cr_type %></td>
-          <td><%= c.Accused %></td>
-          <td><%= c.tantou %></td>
-          <td><%= link_to "返す",'#' %></td>
-
-        </tbody>
-        <% end %>
-
-      </table>
-        </div>
-</div>
+<% provide(:title,'Ctrl_edit') %>
+<%= form_for(@cr) do |f|%>
+  <div class="col-md-12">
+  <%= f.hidden_field :id%>
+  <%=f.label :officer, 'Officer in charge'%>
+  <%=f.label :officer, @current_user.Name %>
+  <div class="actions">
+  <%= f.submit %>
+  </div>
+  </div>
+<% end %>  
+  <div class="col-md-12">
+    <div class="row">
+        <%= @cr.division %>
+        <%= @cr.Name %>
+        <%= @cr.ext %>
+        <%= @cr.cr_type %>
+        <%= @cr.Accused %>
+    </div>
+  </div>
 
