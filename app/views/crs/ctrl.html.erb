@@ -1,4 +1,15 @@
 <% provide(:title,'Ctrl_Centre') %>
+<%
+=begin
+検索ボックス周り
+=end
+%>
+<%= form_tag ctrl_crs_path, :method => 'get' do %>
+<p>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag '検索', :id => nil %>
+</p>
+<%end%>
 <div class="row">
         <div class="col-md-12">
       <table class="table">

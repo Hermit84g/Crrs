@@ -17,9 +17,10 @@ class CrsController < ApplicationController
   end
 
   def ctrl
-    @cr=Cr.all
+    @cr = Cr.search(params[:search])
   end
 
+  
   def edit
     @cr=Cr.find(params[:id])
   end
@@ -49,6 +50,6 @@ class CrsController < ApplicationController
                                  :order_ka, :order_fu, :order_jd, :cnt_jd)
     end
     def officer_params
-      params.require(:cr).permit(:officer, :Name, :status)
+      params.require(:cr).permit(:officer, :Name, :status,:amount_ka,:amount_fu)
     end
 end
